@@ -13,15 +13,16 @@ if [ ! -f "$LOGO" ]; then
     exit 1
 fi
 
-THEME_NAME="mytheme"
+THEME_NAME="embeddedlogo"
 THEME_DIR="/usr/share/plymouth/themes/$THEME_NAME"
 THEME_SCRIPT_PATH="$THEME_DIR/$THEME_NAME.script"
+THEME_MAIN_FILE="$THEME_DIR/$THEME_NAME.plymouth"
 
 # CREATE THEME
 mkdir -p "$THEME_DIR"
 cp "$LOGO" "$THEME_DIR/logo.png"
 
-tee "$THEME_DIR/$THEME_NAME.plymouth" > /dev/null <<EOF
+tee "$THEME_MAIN_FILE" > /dev/null <<EOF
 [Plymouth Theme]
 Name=$THEME_NAME
 Description=$THEME_NAME
@@ -47,6 +48,8 @@ EOT
 
 chmod +x "$THEME_SCRIPT_PATH"
 
+sudo ln -sf \
+  $THEME_MAIN_FILE \
+  /usr/share/plymouth/themes/default.plymouth
 
-cp "$THEME_DIR/$THEME_NAME.plymouth" /usr/share/plymouth/themes/default.plymouth
 update-initramfs -u
