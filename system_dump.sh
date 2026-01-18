@@ -15,8 +15,8 @@ FULL_DISK="/dev/$DISK"
 echo "Root partition: $ROOT_PART"
 echo "Disk path: $FULL_DISK"
 
-sudo fsfreeze -f /
-sudo dd if="$FULL_DISK" of="$OUTPUT" bs=64M status=progress conv=sync
-sudo fsfreeze -u /
+fsfreeze -f /
+dd if="$FULL_DISK" of="$OUTPUT" bs=64M status=progress conv=sync
+fsfreeze -u /
 
 echo "Output file: $OUTPUT"
