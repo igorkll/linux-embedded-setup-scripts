@@ -13,9 +13,10 @@ set_grub_param() {
     fi
 }
 
-set_grub_param GRUB_TIMEOUT 0
 set_grub_param GRUB_TIMEOUT_STYLE hidden
+set_grub_param GRUB_TIMEOUT 0
 set_grub_param GRUB_HIDDEN_TIMEOUT 0
+set_grub_param GRUB_RECORDFAIL_TIMEOUT 0
 
 grub-editenv /boot/grub/grubenv unset recordfail
 
