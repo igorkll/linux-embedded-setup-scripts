@@ -34,16 +34,21 @@ ScriptFile=$THEME_SCRIPT_PATH
 EOF
 
 tee "$THEME_SCRIPT_PATH" > /dev/null <<'EOT'
-plymouth_set_background_color 0 0 0
+image = Image("logo.png");
 
-image = Image("logo.png")
+window_width = Window.GetWidth();
+window_height = Window.GetHeight();
 
-window_width, window_height = Window.GetSize()
-img_width, img_height = image.GetSize()
-x = (window_width - img_width) / 2
-y = (window_height - img_height) / 2
+img_width = image.GetWidth();
+img_height = image.GetHeight();
 
-image.Show(x, y)
+x = (window_width - img_width) / 2;
+y = (window_height - img_height) / 2;
+
+image_sprite = Sprite(image);
+image_sprite.SetX(x);
+image_sprite.SetY(y);
+image_sprite.SetZ(-1);
 EOT
 
 chmod +x "$THEME_SCRIPT_PATH"
