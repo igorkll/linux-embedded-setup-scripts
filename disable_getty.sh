@@ -21,3 +21,4 @@ systemctl mask getty@tty5.service
 systemctl disable getty@tty6.service
 systemctl mask getty@tty6.service
 
+chmod -x /sbin/agetty
