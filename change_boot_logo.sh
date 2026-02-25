@@ -13,7 +13,7 @@ if [ ! -f "$LOGO" ]; then
     exit 1
 fi
 
-THEME_NAME="embeddedlogo"
+THEME_NAME="bootlogo"
 THEME_DIR="/usr/share/plymouth/themes/$THEME_NAME"
 THEME_SCRIPT_PATH="$THEME_DIR/$THEME_NAME.script"
 THEME_MAIN_FILE="$THEME_DIR/$THEME_NAME.plymouth"
