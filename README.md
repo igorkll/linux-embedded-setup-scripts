@@ -2,6 +2,11 @@
 scripts for configuring embedded linux from a running system can be executed from a target device or by automated build systems from a chroot.
 all scripts must be run from root.
 
+## supported distributions
+* debian
+* ubuntu
+* linux mint
+
 ## scripts
 * change_boot_logo.sh path/to/new/logo.png - 
 * debug_boot_logo.sh - It shows the logo for 10 seconds on the active system, which allows you to debug it
