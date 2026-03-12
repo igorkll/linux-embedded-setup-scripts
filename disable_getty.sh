@@ -11,6 +11,3 @@ systemctl mask getty@tty6.service
 systemctl mask serial-getty@.service
 systemctl mask container-getty@.service
 systemctl mask console-getty.service
-
-chmod -x /sbin/getty
-chmod -x /sbin/agetty
