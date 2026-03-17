@@ -18,7 +18,8 @@ THEME_DIR="/usr/share/plymouth/themes/$THEME_NAME"
 THEME_SCRIPT_PATH="$THEME_DIR/$THEME_NAME.script"
 THEME_MAIN_FILE="$THEME_DIR/$THEME_NAME.plymouth"
 
-# CREATE THEME
+# ---------------------- CREATE THEME
+
 mkdir -p "$THEME_DIR"
 cp "$LOGO" "$THEME_DIR/logo.png"
 
@@ -52,6 +53,8 @@ image_sprite.SetZ(-1);
 EOT
 
 chmod +x "$THEME_SCRIPT_PATH"
+
+# ---------------------- ENABLE THEME
 
 sudo ln -sf \
   $THEME_MAIN_FILE \
