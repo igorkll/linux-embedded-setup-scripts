@@ -18,3 +18,6 @@ all scripts must be run from root.
 # warnings
 * if you use hide_grub_menu.sh the grub menu can still be opened manually using shift/esc
 * if after using make_raw_grub_boot.sh if you call update-grub, it will overwrite the result (hide_grub_menu.sh it also calls update-grub)
+
+## urls
+* x11 config: https://www.x.org/archive/X11R6.8.0/doc/xorg.conf.5.html
