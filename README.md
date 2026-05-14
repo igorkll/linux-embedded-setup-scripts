@@ -13,7 +13,11 @@ all scripts must be run from root.
 * make_raw_grub_boot.sh - this script generates grub.cfg by itself. As a result, calling update-grub will reset the action of this script. this script generates an extremely primitive grub.cfg that immediately starts the OS from the same partition as grub, which completely eliminates access to its menu. after calling this script, grub will no longer be visible at all
 * hide_grub_menu.sh - disables the display of the grub menu by default and in case of failure. BUT IT DOES NOT COMPLETELY BLOCK THE ENTRANCE TO IT (you can still open it using ESC/SHIFT)
 * system_dump.sh path/to/image.img - creates a dump of the entire disk with the partition table and bootloader. causes all disk writes to be completely blocked during dump creation
-* disable_getty.sh - disables getty, making it impossible to log in via the console
+* disable_getty.sh - disables getty, making it impossible to login in via the console
+* allow_x11_without_mouse.sh - 
+* disable_x11_vt_switching.sh - 
+* disable_x11_zap.sh - 
+* disable_x11_zoom.sh - 
 
 # warnings
 * if you use hide_grub_menu.sh the grub menu can still be opened manually using shift/esc
