@@ -30,3 +30,5 @@ EXTRACT_DIR_ARCH="$EXTRACT_DIR/$SUBDIR"
 echo "$EXTRACT_DIR_ARCH"
 cp -r "$EXTRACT_DIR_ARCH"/. /
 rm -rf "$TMP_DIR"
+
+update-initramfs -u
