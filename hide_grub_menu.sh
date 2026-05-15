@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 set_grub_param() {
     local param="$1"
     local value="$2"

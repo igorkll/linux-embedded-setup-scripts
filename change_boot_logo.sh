@@ -13,6 +13,12 @@ if [ ! -f "$LOGO" ]; then
     exit 1
 fi
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 THEME_NAME="bootlogo"
 THEME_DIR="/usr/share/plymouth/themes/$THEME_NAME"
 THEME_SCRIPT_PATH="$THEME_DIR/$THEME_NAME.script"

@@ -6,6 +6,12 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 OUTPUT="$1"
 
 ROOT_PART=$(df / | tail -1 | awk '{print $1}')

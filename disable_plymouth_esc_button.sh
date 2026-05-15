@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 URL="https://github.com/igorkll/embedded-plymouth/releases/download/1.1/release-binary.tar.gz"
 
 TMP_DIR=$(mktemp -d)

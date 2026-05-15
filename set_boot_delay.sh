@@ -6,6 +6,12 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 TIMEOUT="$1"
 SCRIPT_PATH="/usr/share/initramfs-tools/scripts/init-bottom/zzz-boot-delay"
 

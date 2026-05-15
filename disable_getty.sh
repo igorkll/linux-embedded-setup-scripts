@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Restart with root..."
+    exec sudo "$0" "$@"
+    exit $?
+fi
+
 systemctl mask getty.target
 systemctl mask getty@.service
 systemctl mask getty@tty1.service
