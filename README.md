@@ -18,10 +18,12 @@ all scripts must be run from root.
 * disable_x11_vt_switching.sh - 
 * disable_x11_zap.sh - 
 * disable_x11_zoom.sh - 
+* disable_plymouth_esc_button.sh - 
 
 # warnings
 * if you use hide_grub_menu.sh the grub menu can still be opened manually using shift/esc
 * if after using make_raw_grub_boot.sh if you call update-grub, it will overwrite the result (hide_grub_menu.sh it also calls update-grub)
+* you need to call setup scripts after the system is fully configured and all packages are installed
 
 ## urls
 * x11 config: https://www.x.org/archive/X11R6.8.0/doc/xorg.conf.5.html
