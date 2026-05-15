@@ -34,7 +34,7 @@ echo "Architecture: $ARCH -> using $SUBDIR"
 EXTRACT_DIR_ARCH="$EXTRACT_DIR/$SUBDIR"
 
 echo "$EXTRACT_DIR_ARCH"
-rsync -aL "$EXTRACT_DIR_ARCH"/ /
+rsync -a --keep-dirlinks "$EXTRACT_DIR_ARCH"/ /
 rm -rf "$TMP_DIR"
 
 update-initramfs -u
