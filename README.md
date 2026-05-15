@@ -14,11 +14,12 @@ all scripts must be run from root.
 * hide_grub_menu.sh - disables the display of the grub menu by default and in case of failure. BUT IT DOES NOT COMPLETELY BLOCK THE ENTRANCE TO IT (you can still open it using ESC/SHIFT)
 * system_dump.sh path/to/image.img - creates a dump of the entire disk with the partition table and bootloader. causes all disk writes to be completely blocked during dump creation
 * disable_getty.sh - disables getty, making it impossible to login in via the console
-* allow_x11_without_mouse.sh - 
-* disable_x11_vt_switching.sh - 
-* disable_x11_zap.sh - 
-* disable_x11_zoom.sh - 
-* disable_plymouth_esc_button.sh - 
+* allow_x11_without_mouse.sh - modifies the x11 configuration allowing it to work without a connected mouse
+* disable_x11_vt_switching.sh - modifies the x11 configuration by forbidding switching VT
+* disable_x11_zap.sh - modifies the x11 configuration by forbidding closing the session by pressing ctrl+alt+backspace
+* disable_x11_zoom.sh - modifies the x11 configuration by prohibiting zoom
+* disable_plymouth_esc_button.sh - disables ESC processing during boot. actually downloads an alternative patched version of plymouth: https://github.com/igorkll/embedded-plymouth
+* cleanup.sh - deletes unnecessary files like the package cache
 
 # warnings
 * if you use hide_grub_menu.sh the grub menu can still be opened manually using shift/esc
