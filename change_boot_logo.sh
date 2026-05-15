@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [ $# -ne 1 ]; then
     echo "usage: $0 /path/to/new/logo.png"
@@ -62,8 +61,12 @@ chmod +x "$THEME_SCRIPT_PATH"
 
 # ---------------------- ENABLE THEME
 
-sudo ln -sf \
+ln -sf \
   $THEME_MAIN_FILE \
   /usr/share/plymouth/themes/default.plymouth
+
+plymouth-set-default-theme "$THEME_NAME"
+
+update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth "$THEME_MAIN_FILE" 10000
 
 update-initramfs -u
