@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [[ $EUID -ne 0 ]]; then
     echo "Restart with root..."
@@ -10,3 +9,5 @@ fi
 apt autoremove -y
 apt autoclean
 apt clean
+
+snap set system refresh.retain=1

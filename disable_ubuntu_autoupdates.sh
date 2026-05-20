@@ -11,3 +11,5 @@ systemctl mask --now apt-daily.timer
 systemctl mask --now apt-daily-upgrade.timer
 
 apt remove update-notifier -y
+
+snap refresh --hold
