@@ -7,6 +7,10 @@ all scripts must be run from root.
 * ubuntu
 * linux mint
 
+## roadmap
+* script for deleting all sets of kernel modules except the set for the current kernel
+* a script to remove all cores from the system except the current kernel
+
 ## scripts
 * change_boot_logo.sh path/to/new/logo.png - 
 * set_boot_delay.sh DELAY_SECONDS - It holds the download for a specified number of seconds, which allows you to see the logo longer
