@@ -12,7 +12,7 @@ all scripts must be run from root.
 * a script to remove all cores from the system except the current kernel
 
 ## scripts
-* change_boot_logo.sh path/to/new/logo.png - 
+* change_boot_logo.sh path/to/new/logo.png - changes the boot logo of the system
 * set_boot_delay.sh DELAY_SECONDS - It holds the download for a specified number of seconds, which allows you to see the logo longer
 * hide_grub_menu.sh - disables the display of the grub menu by default and in case of failure. BUT IT DOES NOT COMPLETELY BLOCK THE ENTRANCE TO IT (you can still open it using ESC/SHIFT)
 * system_dump.sh path/to/image.img - creates a dump of the entire disk with the partition table and bootloader. causes all disk writes to be completely blocked during dump creation
@@ -24,10 +24,12 @@ all scripts must be run from root.
 * disable_plymouth_esc_button.sh - disables ESC processing during boot. actually downloads an alternative patched version of plymouth: https://github.com/igorkll/embedded-plymouth
 * disable_ubuntu_autoupdates.sh - disables auto-updates in the ubuntu distribution
 * cleanup.sh - deletes unnecessary files like the package cache
+* disable_shutdown_reboot_cmd_wall_messages.sh - disables wall messages during reboot/shutdown. It only applies to the shutdown and reboot commands, but not to other reboot methods
 
 # warnings
 * if you use hide_grub_menu.sh the grub menu can still be opened manually using shift/esc
 * you need to call setup scripts after the system is fully configured and all packages are installed
+* these scripts should be run in the very last queue after all system settings. After that, the system cannot be updated or installed using a standard package manager (this will lead to conflicts and reset the scripts' actions)
 
 ## urls
 * x11 config: https://www.x.org/archive/X11R6.8.0/doc/xorg.conf.5.html
