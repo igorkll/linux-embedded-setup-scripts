@@ -25,6 +25,12 @@ elif [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     SUBDIR="arm64"
 elif [ "$ARCH" = "i386" ] || [ "$ARCH" = "i686" ]; then
     SUBDIR="x86"
+elif [[ "$ARCH" == arm* ]]; then
+    if [ -f /lib/ld-linux-armhf.so.3 ]; then
+        SUBDIR="armhf"
+    else
+        SUBDIR="armel"
+    fi
 else
     echo "Unsupported architecture: $ARCH"
     exit 1
